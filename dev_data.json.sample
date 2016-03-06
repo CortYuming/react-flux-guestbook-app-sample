@@ -1,0 +1,16 @@
+{
+  "guestbooks": [
+    {
+      "id": 1,
+      "comment": "Hi"
+    },
+    {
+      "id": 2,
+      "comment": "Yo!"
+    },
+    {
+      "comment": "hello",
+      "id": 3
+    }
+  ]
+}
