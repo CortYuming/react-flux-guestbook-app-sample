@@ -1,14 +1,14 @@
 'use strict';
 
 import AppDispatcher from '../dispatchers/AppDispatcher';
-import http from './http';
+import requests from './requests';
 import {API_HOST} from '../settings';
 
 
 const GuestbookActions = {
   getList: (url=`${API_HOST}guestbooks/`) => {
     return Promise.resolve(
-      http.get(url)
+      requests.get(url)
     ).then((parsedJson) => {
       AppDispatcher.dispatch({
         actionType: 'GUESTBOOK/GET_LIST',
@@ -18,7 +18,7 @@ const GuestbookActions = {
   },
   create: (body={}) => {
     return Promise.resolve(
-      http.post(`${API_HOST}guestbooks/`, body)
+      requests.post(`${API_HOST}guestbooks/`, body)
     ).then((parsedJson) => {
       AppDispatcher.dispatch({
         actionType: 'GUESTBOOK/CREATE',
@@ -28,7 +28,7 @@ const GuestbookActions = {
   },
   update: (id, body={}) => {
     return Promise.resolve(
-      http.patch(`${API_HOST}guestbooks/${id}`, body)
+      requests.patch(`${API_HOST}guestbooks/${id}`, body)
     ).then((parsedJson) => {
       AppDispatcher.dispatch({
         actionType: 'GUESTBOOK/UPDATE',
@@ -38,7 +38,7 @@ const GuestbookActions = {
   },
   delete: (id) => {
     return Promise.resolve(
-      http.delete(`${API_HOST}guestbooks/${id}`)
+      requests.delete(`${API_HOST}guestbooks/${id}`)
     ).then(() => {
       AppDispatcher.dispatch({
         actionType: 'GUESTBOOK/DELETE',

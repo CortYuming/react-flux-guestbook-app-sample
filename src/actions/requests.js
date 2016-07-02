@@ -1,7 +1,7 @@
 'use strict';
 
 
-const http = {
+const requests = {
   get: (url) => {
     return fetch(
       url
@@ -72,4 +72,4 @@ const http = {
 };
 
 
-export default http;
+export default requests;
