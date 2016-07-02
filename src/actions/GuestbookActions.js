@@ -7,7 +7,7 @@ import {API_HOST} from '../settings';
 
 const GuestbookActions = {
   getList: (url=`${API_HOST}guestbooks/`) => {
-    Promise.resolve(
+    return Promise.resolve(
       http.get(url)
     ).then((parsedJson) => {
       AppDispatcher.dispatch({
@@ -17,7 +17,7 @@ const GuestbookActions = {
     });
   },
   create: (body={}) => {
-    Promise.resolve(
+    return Promise.resolve(
       http.post(`${API_HOST}guestbooks/`, body)
     ).then((parsedJson) => {
       AppDispatcher.dispatch({
@@ -27,7 +27,7 @@ const GuestbookActions = {
     });
   },
   update: (id, body={}) => {
-    Promise.resolve(
+    return Promise.resolve(
       http.patch(`${API_HOST}guestbooks/${id}`, body)
     ).then((parsedJson) => {
       AppDispatcher.dispatch({
@@ -37,7 +37,7 @@ const GuestbookActions = {
     });
   },
   delete: (id) => {
-    Promise.resolve(
+    return Promise.resolve(
       http.delete(`${API_HOST}guestbooks/${id}`)
     ).then(() => {
       AppDispatcher.dispatch({
